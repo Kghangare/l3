@@ -1,0 +1,31 @@
+Key Generation
+
+Random 10 bits
+P10 permute
+Divide into 2 halves
+Left round shift by 1 - outLeft1
+Combine and put into P8 permute
+Get Key1
+Use outLeft1 and shift left by 2 bits
+Combine and put into P8 permute
+Get Key2
+ 
+
+Plain to Cipher
+
+8 bit random
+Put into IP8 table to permute
+Break into 2 halves - 
+Take right half and put into EP expansion table
+XOR Key1 with output of expansion
+Get the output
+Split o/p into 2 halves
+Put left half into S0
+Put right half into S1
+Combine o/p of S0 & S1
+Put into P4 permute
+XOR with left half of IP8 table o/p
+Use o/p as right half of next round
+Use right half of IP8 table o/p as left half of next round
+
+Repeat all steps but use Key2
